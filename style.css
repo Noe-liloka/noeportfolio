@@ -1,0 +1,778 @@
+/* =================================================================== */
+/* 1. Variables de Thème (Mode Sombre par défaut)
+/* =================================================================== */
+:root {
+    /* Polices et Couleurs de base */
+    
+    /* MODIFICATION : Police d'écriture style iOS (San Francisco) */
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    --primary-color: #00aaff;
+    --primary-hover: #0088cc;
+    --text-color: #f0f0f0;
+    --text-secondary: #aaaaaa;
+    
+    /* --- NOUVEAU : Thème "Glass" --- */
+    
+    /* Le fond uni derrière les blobs */
+    --bg-color: #121212;
+    
+    /* Les blobs de couleur en fond */
+    --bg-blobs: radial-gradient(circle at 15% 30%, hsla(220, 80%, 50%, 0.2), transparent 40%),
+                radial-gradient(circle at 80% 75%, hsla(300, 70%, 50%, 0.2), transparent 40%);
+    
+    /* Les propriétés du "verre" */
+    --glass-bg: rgba(30, 30, 30, 0.65); /* Fond de la carte en verre */
+    --glass-border: rgba(255, 255, 255, 0.08); /* Bordure du verre */
+    --glass-blur: 15px; /* Intensité du flou */
+    
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --theme-transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =================================================================== */
+/* 2. Mode Clair
+/* =================================================================== */
+body.light-mode {
+    --primary-color: #0077cc;
+    --primary-hover: #0055aa;
+    --text-color: #1a1a1a;
+    --text-secondary: #555555;
+
+    /* --- NOUVEAU : Thème "Glass" Clair --- */
+    --bg-color: #f8f8f8;
+    
+    --bg-blobs: radial-gradient(circle at 15% 30%, hsla(220, 80%, 60%, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 75%, hsla(300, 70%, 60%, 0.15), transparent 40%);
+    
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-blur: 15px;
+    
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* =================================================================== */
+/* 3. Styles de Base
+/* =================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* La police définie dans :root est appliquée automatiquement */
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--theme-transition);
+    
+    /* Application du fond avec les blobs */
+    background-image: var(--bg-blobs);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+/* ... (Le reste de votre fichier CSS reste exactement le même) ... */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* S'assure que le contenu ne passe pas sous le header */
+main > section.container:first-of-type {
+    padding-top: 10rem;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+h2 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    transition: border-color 0.3s ease;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* =================================================================== */
+/* 4. Header & Navigation (Style Verre)
+/* =================================================================== */
+header {
+    /* Style Verre */
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+header nav ul {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+header nav ul li a {
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* Bouton Theme Toggle */
+.theme-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(15deg);
+}
+
+.theme-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-color); /* L'icône prend la couleur du thème */
+    transition: fill 0.3s ease;
+}
+
+/* =================================================================== */
+/* 5. Sections
+/* =================================================================== */
+
+/* Section Hero (Accueil) */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Le fond est maintenant transparent pour voir les blobs */
+    padding: 0 2rem;
+}
+.hero-content h1 { font-size: 4rem; margin-bottom: 0.5rem; }
+.hero-content p { font-size: 1.5rem; color: var(--text-color); margin-bottom: 2rem; }
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 0.5rem;
+}
+.btn:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); }
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+.btn-secondary:hover { background-color: var(--primary-color); color: #fff; }
+
+/* =================================================================== */
+/* 6. Cartes & Contenus (Style Verre)
+/* =================================================================== */
+
+/* Style de base pour toutes les "cartes" en verre */
+.project-card,
+.bts-card,
+.timeline-content,
+.excel-preview,
+.contact-form-container {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.project-card:hover,
+.bts-card:hover,
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+/* Compétences */
+.skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+
+.skill-tag,
+.skill-tag-link {
+    /* Style Verre */
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(5px); /* Flou plus léger pour les tags */
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.skill-tag-link:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+
+/* Projets */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.project-card {
+    border-left: 4px solid var(--primary-color); /* On garde la bordure de couleur */
+    display: flex;
+    flex-direction: column;
+}
+.project-card h3 { color: var(--text-color); }
+.project-card p { flex-grow: 1; }
+.project-link {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.project-link:hover { background-color: var(--primary-hover); }
+
+/* Section BTS SIO */
+.bts-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.bts-card h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.bts-card ul { list-style: disc; padding-left: 20px; color: var(--text-secondary); }
+.highlight-sisr { color: var(--primary-color); font-weight: bold; }
+@media (min-width: 900px) {
+    .bts-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Section Veille & A Propos */
+#apropos ul, #veille ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: var(--text-secondary);
+}
+
+/* Section Parcours (Timeline) */
+.timeline { position: relative; max-width: 800px; margin: 0 auto; }
+.timeline::after {
+    content: ''; position: absolute; width: 4px;
+    /* Fond de la ligne en verre */
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid var(--glass-border);
+    
+    top: 0; bottom: 0; left: 50%; margin-left: -2px;
+    border-radius: 2px;
+}
+.timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+.timeline-item:nth-child(odd) { left: 0; padding-right: 70px; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; padding-left: 70px; }
+.timeline-item::after {
+    content: ''; position: absolute; width: 20px; height: 20px;
+    right: -10px; 
+    background-color: var(--bg-color); /* Point de la couleur du fond */
+    border: 4px solid var(--primary-color);
+    top: 20px; border-radius: 50%; z-index: 1;
+    transition: background-color 0.3s ease;
+}
+.timeline-item:nth-child(even)::after { left: -10px; }
+.timeline-content {
+    padding: 20px;
+    position: relative;
+    /* Propriétés de verre déjà appliquées en haut */
+}
+.timeline-content h3 { color: var(--text-color); }
+.timeline-content p { color: var(--text-secondary); }
+.timeline-content ul { list-style: disc; padding-left: 20px; text-align: left; }
+
+/* Effet hover logo Timeline */
+.timeline-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: scale(0.9);
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.timeline-item:nth-child(odd) .timeline-logo { right: auto; left: 20px; }
+.timeline-content:hover .timeline-logo { opacity: 1; transform: scale(1); }
+
+
+/* Contact & Footer */
+.contact-info p { font-size: 1.1rem; color: var(--text-color); }
+footer {
+    text-align: center; padding: 2rem;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-top: 1px solid var(--glass-border);
+    margin-top: 2rem; 
+    color: var(--text-secondary);
+    transition: var(--theme-transition);
+}
+
+/* Effet d'apparition au scroll */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* =================================================================== */
+/* 7. Styles (Documentation, Contact, etc.)
+/* =================================================================== */
+
+/* --- Page Documentation --- */
+.excel-preview {
+    width: 100%;
+    min-height: 300px;
+    /* Verre déjà appliqué */
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+.excel-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+/* --- Page BTS SIO --- */
+.card-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--glass-border);
+    margin: 1.5rem 0;
+}
+
+/* --- Page Contact --- */
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.social-links { margin-top: 2rem; }
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--glass-border);
+    border-radius: 5px;
+    color: var(--text-secondary);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.linkedin-link svg { fill: var(--text-secondary); transition: fill 0.3s ease; }
+.linkedin-link:hover { color: var(--primary-color); border-color: var(--primary-color); }
+.linkedin-link:hover svg { fill: var(--primary-color); }
+
+/* Formulaire de Contact (Style Verre) */
+.contact-form-container {
+    /* Verre déjà appliqué */
+    padding: 2rem;
+}
+.contact-form-container p { color: var(--text-color); }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--text-secondary); }
+
+.form-group input[type="email"],
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--glass-border);
+    
+    /* Style Verre pour les champs */
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    color: var(--text-color);
+    border-radius: 5px;
+    transition: var(--theme-transition), border-color 0.3s ease;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* =================================================================== */
+/* 8. Responsive Design
+/* =================================================================== */
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; gap: 1rem; }
+    header nav ul { justify-content: center; gap: 0.5rem 1rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1.2rem; }
+
+    /* Timeline sur mobile */
+    .timeline::after { left: 30px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0; text-align: left; padding-left: 70px;
+    }
+    .timeline-item::after { left: 20px; }
+    
+    /* Logo timeline sur mobile */
+    .timeline-logo { top: 10px; right: 10px; width: 60px; }
+    .timeline-item:nth-child(odd) .timeline-logo,
+    .timeline-item:nth-child(even) .timeline-logo {
+        left: auto; right: 10px;
+    }
+}
+/* =================================================================== */
+/* 9. Styles Mise à Jour E5 (Cartes Projets Contextualisées)
+/* =================================================================== */
+
+/* Permet à une carte de prendre toute la largeur si nécessaire */
+.full-width-card {
+    grid-column: 1 / -1; /* Prend toute la largeur de la grille */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.context-label {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.project-details-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.project-details-list li {
+    background-color: rgba(255, 255, 255, 0.05); /* Légère surbrillance */
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--text-secondary);
+}
+
+.project-details-list li strong {
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.doc-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+.doc-link:hover {
+    color: var(--primary-hover);
+}
+
+/* Ajustement responsive pour les grosses cartes */
+@media (max-width: 768px) {
+    .full-width-card {
+        padding: 1rem;
+    }
+}
+/* AJOUTS POUR LA SYNTHÈSE E5 ET DOCUMENTATION */
+
+/* Styles pour le Tableau de Synthèse */
+.synthesis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    background-color: var(--card-color);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+.synthesis-table th, .synthesis-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+.synthesis-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    vertical-align: top;
+}
+.synthesis-table td {
+    color: var(--text-color);
+    transition: var(--theme-transition);
+}
+.synthesis-table tr:nth-child(even) {
+    background-color: #383838; /* Slight difference for dark mode */
+}
+body.light-mode .synthesis-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Slight difference for light mode */
+}
+.synthesis-table .project-title {
+    text-align: left;
+    font-weight: bold;
+    min-width: 200px;
+}
+.synthesis-table .competency-check {
+    font-size: 1.2rem;
+    color: var(--primary-color); /* Utilise la couleur primaire pour les checks */
+    font-weight: bold;
+}
+
+/* Styles pour la section Documentation des Compétences */
+.documentation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.documentation-card {
+    background-color: var(--card-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.documentation-card:hover {
+    transform: translateY(-5px);
+}
+.documentation-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.documentation-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Fin des ajouts */
+
+/* Reste du fichier CSS inchangé (omitted for brevity) */
+/* =================================================================== */
+/* 10. Styles Menus Déroulants (Dropdowns)
+/* =================================================================== */
+
+/* Conteneur du menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Le contenu du menu (caché par défaut) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    min-width: 200px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    border-radius: 8px;
+    z-index: 1000;
+    top: 100%; /* Juste en dessous du lien */
+    left: 0;
+    padding: 0.5rem 0;
+}
+
+/* Les liens dans le menu déroulant */
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol des liens du menu */
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+}
+
+/* Afficher le menu au survol du parent */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Petit indicateur (flèche) à côté du lien principal */
+.dropbtn::after {
+    content: ' ▼';
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+/* Styles pour les images vitrines des projets */
+.project-image-container {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour uniformiser */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--glass-border);
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit le cadre sans déformation */
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-showcase-img {
+    transform: scale(1.05); /* Zoom léger au survol */
+}
+
+/* Texte spécifique pour le contexte */
+.project-context {
+    font-style: italic;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+/* =================================================================== */
+/* 11. Styles pour les Images de Réalisation (Vitrines)
+/* =================================================================== */
+
+.realization-img-wrapper {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background-color: rgba(0,0,0,0.1);
+    max-width: 100%; /* S'adapte à la largeur de la carte */
+}
+
+.realization-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 250px; /* Limite la hauteur pour ne pas casser la page */
+    transition: transform 0.3s ease;
+}
+
+.realization-img:hover {
+    transform: scale(1.02);
+}
+
+.doc-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 5px;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS SIO - Portfolio Noé Liloka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">Noé Liloka</a>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="apropos.html" class="dropbtn">À propos</a>
+                        <div class="dropdown-content">
+                            <a href="apropos.html#presentation">Présentation</a>
+                            <a href="apropos.html#competences">Compétences</a>
+                            <a href="apropos.html#parcours">Parcours</a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="projets.html" class="dropbtn">Projets</a>
+                        <div class="dropdown-content">
+                            <a href="projets.html#synthese">Synthèse E5</a>
+                            <a href="projets.html#projets-detail">Détail Projets</a>
+                            <a href="projets.html#doc-competences">Documentations</a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="btssio.html" class="dropbtn">BTS SIO</a>
+                        <div class="dropdown-content">
+                            <a href="btssio.html#definition">C'est quoi ?</a>
+                            <a href="btssio.html#options">Options (SISR)</a>
+                            <a href="btssio.html#debouches">Débouchés</a>
+                            <a href="btssio.html#monprojet">Mon Projet Post-BTS</a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="veille.html" class="dropbtn">Veille</a>
+                        <div class="dropdown-content">
+                            <a href="veille.html#intro">Le Jailbreak</a>
+                            <a href="veille.html#actu">Actu Console</a>
+                            <a href="veille.html#sources">Sources</a>
+                        </div>
+                    </li>
+
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="definition" class="container reveal">
+            <h2>Le BTS SIO</h2>
+            <p class="section-subtitle">Services Informatiques aux Organisations</p>
+
+            <div class="bts-card full-width-card">
+                <h3>Qu'est-ce que le BTS SIO ?</h3>
+                <div class="card-divider"></div>
+                <p>
+                    Le BTS Services Informatiques aux Organisations (SIO) est un diplôme d'État de niveau Bac+2 (Niveau 5) qui forme des experts capables de gérer, sécuriser et développer les services informatiques d'une entreprise. Il remplace l'ancien BTS IG (Informatique de Gestion).
+                </p>
+                <p>
+                    La formation s'articule autour d'un socle commun (culture générale, mathématiques, économie, droit et bases de l'informatique) avant une spécialisation au second semestre de la première année.
+                </p>
+            </div>
+        </section>
+
+        <section id="options" class="container reveal">
+            <h2>Les Options de Spécialisation</h2>
+            
+            <div class="bts-grid">
+                <div class="bts-card">
+                    <h3>Option SISR (Mon choix)</h3>
+                    <p class="highlight-sisr">Solutions d'Infrastructure, Systèmes et Réseaux</p>
+                    <div class="card-divider"></div>
+                    <p>Cette option forme des administrateurs réseaux et systèmes. Les missions principales sont :</p>
+                    <ul>
+                        <li>Installation et configuration de serveurs (Windows, Linux).</li>
+                        <li>Gestion de la virtualisation et du Cloud.</li>
+                        <li>Sécurisation des réseaux (Pare-feu, VPN, VLAN).</li>
+                        <li>Support utilisateur et maintenance du parc.</li>
+                    </ul>
+                </div>
+
+                <div class="bts-card">
+                    <h3>Option SLAM</h3>
+                    <p style="color: var(--text-secondary); font-weight: bold;">Solutions Logicielles et Applications Métiers</p>
+                    <div class="card-divider"></div>
+                    <p>Cette option est orientée vers le développement. Les missions principales sont :</p>
+                    <ul>
+                        <li>Conception et développement d'applications (Web, Mobile, Desktop).</li>
+                        <li>Gestion des bases de données (SQL).</li>
+                        <li>Maintenance corrective et évolutive des logiciels.</li>
+                        <li>Gestion de versions et DevOps.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="debouches" class="container reveal">
+            <h2>Débouchés Professionnels</h2>
+            <div class="bts-card full-width-card">
+                <p>Le BTS SIO option SISR permet d'accéder à des métiers variés dès l'obtention du diplôme :</p>
+                <div class="skills-grid" style="margin-top: 1rem;">
+                    <span class="skill-tag">Administrateur Système & Réseau</span>
+                    <span class="skill-tag">Technicien Support / Helpdesk</span>
+                    <span class="skill-tag">Technicien d'Infrastructure</span>
+                    <span class="skill-tag">Analyste en Cybersécurité (Junior)</span>
+                    <span class="skill-tag">Pilote d'exploitation</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="monprojet" class="container reveal">
+            <h2>Mon Projet Post-BTS</h2>
+            <p class="section-subtitle">Mes ambitions académiques et professionnelles pour l'avenir.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1. Court Terme : Licence Professionnelle</h3>
+                        <p><strong>Objectif : Bac +3</strong></p>
+                        <p>
+                            Après l'obtention de mon BTS, je souhaite intégrer une Licence Professionnelle spécialisée, idéalement dans les domaines de la <strong>Cybersécurité</strong> ou de l'<strong>Administration Système Avancée</strong> (ex: Licence ASUR).
+                        </p>
+                        <p>
+                            Cela me permettra de consolider mes acquis techniques et de continuer l'alternance pour gagner en expérience terrain.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2. Moyen Terme : Master MIAGE ou Cyber</h3>
+                        <p><strong>Objectif : Bac +5 (Expertise)</strong></p>
+                        <p>
+                            Je vise ensuite un Master, comme le <strong>Master MIAGE</strong> (Méthodes Informatiques Appliquées à la Gestion des Entreprises) pour acquérir une double compétence technique et managériale, ou un <strong>Master Expert Cybersécurité</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>3. Long Terme : Carrière Cible</h3>
+                        <p><strong>Objectif : Ingénieur / Architecte</strong></p>
+                        <p>
+                            À terme, je souhaite évoluer vers des postes à responsabilités tels que :
+                        </p>
+                        <ul>
+                            <li><strong>Architecte Cloud / DevOps :</strong> Concevoir des infrastructures scalables et automatisées.</li>
+                            <li><strong>Expert en Cybersécurité :</strong> Protéger les SI des entreprises contre les menaces avancées.</li>
+                            <li><strong>Chef de Projet Infrastructure :</strong> Piloter des refontes de SI complexes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Noé Liloka. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
