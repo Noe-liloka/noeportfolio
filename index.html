@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Portfolio Noé Liloka</title>
+    <meta name="description" content="Portfolio de Noé Liloka, étudiant en BTS SIO option SISR. Alternance technicien helpdesk chez Rentokil-Initial.">
+    <title>Noé Liloka — Portfolio BTS SIO SISR</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header>
         <nav>
             <div class="nav-container">
-                <a href="index.html" class="nav-logo">Noé Liloka</a>
+                <a href="index.html" class="nav-logo">noé.liloka<span style="color:var(--accent);">_</span></a>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    
                     <li class="dropdown">
                         <a href="apropos.html" class="dropbtn">À propos</a>
                         <div class="dropdown-content">
@@ -22,58 +25,120 @@
                             <a href="apropos.html#parcours">Parcours</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="projets.html" class="dropbtn">Projets</a>
                         <div class="dropdown-content">
-                            <a href="projets.html#synthese">Synthèse E5</a>
-                            <a href="projets.html#projets-detail">Détail Projets</a>
-                            <a href="projets.html#doc-competences">Documentations</a>
+                            <a href="projets.html#synthese">Tableau de synthèse</a>
+                            <a href="projets.html#documentation">Documentations</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="btssio.html" class="dropbtn">BTS SIO</a>
                         <div class="dropdown-content">
                             <a href="btssio.html#definition">C'est quoi ?</a>
                             <a href="btssio.html#options">Options (SISR)</a>
                             <a href="btssio.html#debouches">Débouchés</a>
-                            <a href="btssio.html#monprojet">Mon Projet Post-BTS</a>
+                            <a href="btssio.html#monprojet">Mon projet post-BTS</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="veille.html" class="dropbtn">Veille</a>
                         <div class="dropdown-content">
-                            <a href="veille.html#intro">Le Jailbreak</a>
-                            <a href="veille.html#actu">Actu Console</a>
+                            <a href="veille.html#intro">L'émulation</a>
+                            <a href="veille.html#actu">Actu & juridique</a>
                             <a href="veille.html#sources">Sources</a>
                         </div>
                     </li>
-
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                
-                <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
-                </button>
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème"></button>
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section id="accueil" class="hero">
+    <main id="main-content">
+        <section class="hero">
             <div class="hero-content">
-                <h1>Noé Liloka</h1>
-                <p>Étudiant en deuxième année de BTS SIO, option SISR</p>
-                <a href="contact.html" class="btn">Me Contacter</a>
-                <a href="docs/CV_Noe_Liloka.pdf" class="btn btn-secondary" download>Télécharger mon CV</a>
+                <div class="hero-text">
+                    <span class="hero-status">Disponible · Alternance 2024–2026</span>
+                    <h1>Noé Liloka</h1>
+                    <div class="hero-role" data-typing='["Technicien Helpdesk N1/N2","Étudiant BTS SIO · SISR","Futur Admin Système & Réseau"]'>
+                        <span class="typed-text"></span><span class="cursor"></span>
+                    </div>
+                    <p class="hero-description">
+                        Étudiant en 2ᵉ année de BTS SIO option SISR au CFA IMCP, en alternance chez Rentokil-Initial.
+                        Je conçois et administre des infrastructures systèmes &amp; réseaux fiables, sécurisées et observables.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="contact.html" class="btn">
+                            Me contacter
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                        <a href="https://drive.google.com/uc?export=download&id=1x3HDel_hjvMZVQMm6j3QHozGzE9R-lCF" class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Télécharger CV
+                        </a>
+                        <a href="projets.html" class="btn-ghost">
+                            Voir mes projets →
+                        </a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <div class="hero-meta-item">
+                            <span class="label">Formation</span>
+                            <span class="value">BTS SIO · SISR</span>
+                        </div>
+                        <div class="hero-meta-item">
+                            <span class="label">Alternance</span>
+                            <span class="value">Rentokil-Initial</span>
+                        </div>
+                        <div class="hero-meta-item">
+                            <span class="label">Localisation</span>
+                            <span class="value">Île-de-France</span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-card" aria-label="Carte de profil">
+                    <div class="hero-card-header">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="filename">~/profile.json</span>
+                    </div>
+                    <div class="hero-card-body">
+                        <span class="line"><span class="com">// profil technicien</span></span>
+                        <span class="line">{</span>
+                        <span class="line">&nbsp;&nbsp;<span class="key">"name"</span>: <span class="str">"Noé Liloka"</span>,</span>
+                        <span class="line">&nbsp;&nbsp;<span class="key">"role"</span>: <span class="str">"Helpdesk N1/N2"</span>,</span>
+                        <span class="line">&nbsp;&nbsp;<span class="key">"stack"</span>: [</span>
+                        <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"AD"</span>, <span class="str">"M365"</span>, <span class="str">"ServiceNow"</span>,</span>
+                        <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"pfSense"</span>, <span class="str">"Proxmox"</span></span>
+                        <span class="line">&nbsp;&nbsp;],</span>
+                        <span class="line">&nbsp;&nbsp;<span class="key">"focus"</span>: <span class="str">"infrastructure & sécurité"</span>,</span>
+                        <span class="line">&nbsp;&nbsp;<span class="key">"available"</span>: <span class="val">true</span></span>
+                        <span class="line">}</span>
+                    </div>
+                </aside>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Noé Liloka. Tous droits réservés.</p>
+        <div class="footer-content">
+            <div class="footer-meta">
+                <span>© 2025 Noé Liloka</span>
+                <span class="sep">·</span>
+                <span>Portfolio BTS SIO SISR</span>
+                <span class="sep">·</span>
+                <span>Build v2.0</span>
+            </div>
+            <p>Construit avec ❤️ et beaucoup de café.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

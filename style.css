@@ -1,61 +1,87 @@
 /* =================================================================== */
-/* 1. Variables de Thème (Mode Sombre par défaut)
+/* PORTFOLIO NOÉ LILOKA — Refonte UX/UI                                */
+/* Direction : "Tech Editorial" — typographie expressive + accents néon */
+/* =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+/* =================================================================== */
+/* 1. Variables — Thème Sombre par défaut
 /* =================================================================== */
 :root {
-    /* Polices et Couleurs de base */
-    
-    /* MODIFICATION : Police d'écriture style iOS (San Francisco) */
-    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
-    --primary-color: #00aaff;
-    --primary-hover: #0088cc;
-    --text-color: #f0f0f0;
-    --text-secondary: #aaaaaa;
-    
-    /* --- NOUVEAU : Thème "Glass" --- */
-    
-    /* Le fond uni derrière les blobs */
-    --bg-color: #121212;
-    
-    /* Les blobs de couleur en fond */
-    --bg-blobs: radial-gradient(circle at 15% 30%, hsla(220, 80%, 50%, 0.2), transparent 40%),
-                radial-gradient(circle at 80% 75%, hsla(300, 70%, 50%, 0.2), transparent 40%);
-    
-    /* Les propriétés du "verre" */
-    --glass-bg: rgba(30, 30, 30, 0.65); /* Fond de la carte en verre */
-    --glass-border: rgba(255, 255, 255, 0.08); /* Bordure du verre */
-    --glass-blur: 15px; /* Intensité du flou */
-    
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --theme-transition: background-color 0.3s ease, color 0.3s ease;
+    /* Typographie */
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* Couleurs — palette tech */
+    --accent: #38bdf8;            /* cyan principal */
+    --accent-glow: #38bdf855;
+    --accent-2: #f97316;          /* orange — accent secondaire */
+    --accent-2-glow: #f9731622;
+    --success: #22c55e;
+
+    --bg-base: #0a0e1a;
+    --bg-elevated: #111827;
+    --bg-card: rgba(17, 24, 39, 0.6);
+    --bg-card-hover: rgba(17, 24, 39, 0.85);
+
+    --border: rgba(148, 163, 184, 0.12);
+    --border-strong: rgba(148, 163, 184, 0.25);
+    --border-accent: rgba(56, 189, 248, 0.4);
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    /* Effets */
+    --grid-color: rgba(148, 163, 184, 0.05);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 30px var(--accent-glow);
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =================================================================== */
 /* 2. Mode Clair
 /* =================================================================== */
 body.light-mode {
-    --primary-color: #0077cc;
-    --primary-hover: #0055aa;
-    --text-color: #1a1a1a;
-    --text-secondary: #555555;
+    --accent: #0284c7;
+    --accent-glow: #0284c733;
+    --accent-2: #ea580c;
+    --accent-2-glow: #ea580c22;
 
-    /* --- NOUVEAU : Thème "Glass" Clair --- */
-    --bg-color: #f8f8f8;
-    
-    --bg-blobs: radial-gradient(circle at 15% 30%, hsla(220, 80%, 60%, 0.15), transparent 40%),
-                radial-gradient(circle at 80% 75%, hsla(300, 70%, 60%, 0.15), transparent 40%);
-    
-    --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --glass-blur: 15px;
-    
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --bg-base: #fafaf9;
+    --bg-elevated: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --bg-card-hover: rgba(255, 255, 255, 1);
+
+    --border: rgba(15, 23, 42, 0.1);
+    --border-strong: rgba(15, 23, 42, 0.2);
+    --border-accent: rgba(2, 132, 199, 0.4);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    --grid-color: rgba(15, 23, 42, 0.04);
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
 }
 
 /* =================================================================== */
-/* 3. Styles de Base
+/* 3. Reset & Base
 /* =================================================================== */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -63,716 +89,1445 @@ body.light-mode {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
-    /* La police définie dans :root est appliquée automatiquement */
-    font-family: var(--font-main);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    transition: var(--theme-transition);
-    
-    /* Application du fond avec les blobs */
-    background-image: var(--bg-blobs);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    font-family: var(--font-body);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+    transition: background-color var(--transition), color var(--transition);
+    min-height: 100vh;
+    position: relative;
 }
 
-/* ... (Le reste de votre fichier CSS reste exactement le même) ... */
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+/* Background : grille tech + blobs subtils */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
 }
 
-/* S'assure que le contenu ne passe pas sous le header */
-main > section.container:first-of-type {
-    padding-top: 10rem;
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, var(--accent-glow), transparent 45%),
+        radial-gradient(circle at 85% 75%, var(--accent-2-glow), transparent 45%);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: blob-drift 20s ease-in-out infinite alternate;
 }
 
-h1, h2, h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    transition: color 0.3s ease;
+@keyframes blob-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -20px) scale(1.05); }
 }
 
-h2 {
-    font-size: 2.5rem;
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    transition: border-color 0.3s ease;
+/* Scroll progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    width: 0%;
+    z-index: 1001;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--accent-glow);
 }
+
+/* Skip link (accessibilité) */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--accent);
+    color: var(--bg-base);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    z-index: 2000;
+    font-weight: 600;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* =================================================================== */
+/* 4. Typographie
+/* =================================================================== */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 700; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+h4 { font-size: 1.05rem; }
 
 p {
+    color: var(--text-secondary);
     margin-bottom: 1rem;
-    color: var(--text-secondary);
-    transition: color 0.3s ease;
-}
-.section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-top: -1.5rem;
-    margin-bottom: 2rem;
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--accent);
     text-decoration: none;
+    transition: color var(--transition-fast);
 }
 
-ul {
-    list-style: none;
-    padding-left: 0;
+ul { list-style: none; }
+
+::selection {
+    background: var(--accent);
+    color: var(--bg-base);
 }
 
 /* =================================================================== */
-/* 4. Header & Navigation (Style Verre)
+/* 5. Layout
+/* =================================================================== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+    position: relative;
+}
+
+main > section.container:first-of-type {
+    padding-top: 9rem;
+}
+
+/* Section header (eyebrow + titre + ligne) */
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+}
+
+.section-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-bottom: 3rem;
+}
+
+/* =================================================================== */
+/* 6. Header & Navigation
 /* =================================================================== */
 header {
-    /* Style Verre */
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border-bottom: 1px solid var(--glass-border);
-    
-    padding: 1rem 0;
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 10px var(--shadow-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: rgba(10, 14, 26, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--transition);
+}
+
+body.light-mode header {
+    background-color: rgba(250, 250, 249, 0.75);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 }
 
 .nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-color);
-    transition: color 0.3s ease;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.nav-logo::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 10px var(--success);
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 header nav ul {
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: center;
 }
 
 header nav ul li a {
-    color: var(--text-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    position: relative;
+    display: inline-block;
 }
 
-header nav ul li a:hover,
+header nav ul li a:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+}
+
 header nav ul li a.active {
-    color: var(--primary-color);
+    color: var(--accent);
 }
 
-/* Bouton Theme Toggle */
+header nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0.85rem;
+    right: 0.85rem;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* Theme button */
 .theme-btn {
     background: transparent;
-    border: none;
+    border: 1px solid var(--border);
     cursor: pointer;
-    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    color: var(--text-secondary);
 }
 
 .theme-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-accent);
+    color: var(--accent);
     transform: rotate(15deg);
 }
 
 .theme-btn svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--primary-color); /* L'icône prend la couleur du thème */
-    transition: fill 0.3s ease;
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Hamburger menu */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 18px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 /* =================================================================== */
-/* 5. Sections
+/* 7. Dropdowns
 /* =================================================================== */
+.dropdown {
+    position: relative;
+}
 
-/* Section Hero (Accueil) */
+.dropdown-content {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 220px;
+    background-color: var(--bg-elevated);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all var(--transition-fast);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.65rem 0.85rem;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-card);
+    color: var(--accent);
+    padding-left: 1.1rem;
+}
+
+.dropbtn::after {
+    content: ' ↓';
+    font-size: 0.7em;
+    opacity: 0.6;
+    margin-left: 0.25rem;
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.dropdown:hover .dropbtn::after {
+    transform: rotate(180deg);
+}
+
+/* =================================================================== */
+/* 8. Hero
+/* =================================================================== */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* Le fond est maintenant transparent pour voir les blobs */
-    padding: 0 2rem;
+    padding: 7rem 1.5rem 4rem;
+    position: relative;
 }
-.hero-content h1 { font-size: 4rem; margin-bottom: 0.5rem; }
-.hero-content p { font-size: 1.5rem; color: var(--text-color); margin-bottom: 2rem; }
 
-/* Boutons */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: 2px solid var(--primary-color);
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin: 0 0.5rem;
+.hero-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
 }
-.btn:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); }
+
+@media (min-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1.3fr 1fr;
+    }
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.hero-text h1 {
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.05;
+}
+
+.hero-role {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.hero-role .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 540px;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.hero-meta-item .label {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.hero-meta-item .value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Hero card / terminal */
+.hero-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    transform: rotate(0.5deg);
+    transition: transform var(--transition);
+}
+
+.hero-card:hover {
+    transform: rotate(0deg) translateY(-4px);
+}
+
+.hero-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border);
+}
+
+body.light-mode .hero-card-header {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.hero-card-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    opacity: 0.5;
+}
+.hero-card-header .dot:nth-child(1) { background: #ef4444; }
+.hero-card-header .dot:nth-child(2) { background: #eab308; }
+.hero-card-header .dot:nth-child(3) { background: #22c55e; }
+
+.hero-card-header .filename {
+    margin-left: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.hero-card-body {
+    padding: 1.25rem 1.4rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+
+.hero-card-body .line { display: block; }
+.hero-card-body .key { color: var(--accent); }
+.hero-card-body .val { color: var(--text-primary); }
+.hero-card-body .str { color: var(--accent-2); }
+.hero-card-body .com { color: var(--text-muted); font-style: italic; }
+
+/* =================================================================== */
+/* 9. Buttons
+/* =================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background-color: var(--accent);
+    color: var(--bg-base);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--accent-glow);
+    color: var(--bg-base);
+}
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    box-shadow: none;
 }
-.btn-secondary:hover { background-color: var(--primary-color); color: #fff; }
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: var(--bg-card);
+    box-shadow: none;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    padding: 0.5rem 0;
+    box-shadow: none;
+}
+.btn-ghost:hover {
+    color: var(--accent);
+    background: transparent;
+    transform: translateX(4px);
+    box-shadow: none;
+}
 
 /* =================================================================== */
-/* 6. Cartes & Contenus (Style Verre)
+/* 10. Cards
 /* =================================================================== */
+.card {
+    background-color: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
 
-/* Style de base pour toutes les "cartes" en verre */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Project / BTS / generic cards */
 .project-card,
 .bts-card,
-.timeline-content,
-.excel-preview,
-.contact-form-container {
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 5px 15px var(--shadow-color);
+.contact-form-container,
+.documentation-card {
+    background-color: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before,
+.bts-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
 }
 
 .project-card:hover,
-.bts-card:hover,
-.timeline-content:hover {
-    transform: translateY(-5px);
+.bts-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    background-color: var(--bg-card-hover);
 }
 
-/* Compétences */
-.skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
-
-.skill-tag,
-.skill-tag-link {
-    /* Style Verre */
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(5px); /* Flou plus léger pour les tags */
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid var(--glass-border);
-    
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-.skill-tag-link:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
+.project-card:hover::before,
+.bts-card:hover::before {
+    transform: scaleX(1);
 }
 
-
-/* Projets */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.project-card {
-    border-left: 4px solid var(--primary-color); /* On garde la bordure de couleur */
-    display: flex;
-    flex-direction: column;
-}
-.project-card h3 { color: var(--text-color); }
-.project-card p { flex-grow: 1; }
-.project-link {
-    background-color: var(--primary-color);
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 5px;
-    margin-top: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-.project-link:hover { background-color: var(--primary-hover); }
-
-/* Section BTS SIO */
-.bts-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.project-card h3,
 .bts-card h3 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 0.5rem;
-}
-.bts-card ul { list-style: disc; padding-left: 20px; color: var(--text-secondary); }
-.highlight-sisr { color: var(--primary-color); font-weight: bold; }
-@media (min-width: 900px) {
-    .bts-grid { grid-template-columns: repeat(3, 1fr); }
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
 }
 
-/* Section Veille & A Propos */
-#apropos ul, #veille ul {
-    list-style: disc;
-    padding-left: 20px;
-    color: var(--text-secondary);
+.full-width-card {
+    grid-column: 1 / -1;
 }
 
-/* Section Parcours (Timeline) */
-.timeline { position: relative; max-width: 800px; margin: 0 auto; }
-.timeline::after {
-    content: ''; position: absolute; width: 4px;
-    /* Fond de la ligne en verre */
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border: 1px solid var(--glass-border);
-    
-    top: 0; bottom: 0; left: 50%; margin-left: -2px;
-    border-radius: 2px;
-}
-.timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
-.timeline-item:nth-child(odd) { left: 0; padding-right: 70px; text-align: right; }
-.timeline-item:nth-child(even) { left: 50%; padding-left: 70px; }
-.timeline-item::after {
-    content: ''; position: absolute; width: 20px; height: 20px;
-    right: -10px; 
-    background-color: var(--bg-color); /* Point de la couleur du fond */
-    border: 4px solid var(--primary-color);
-    top: 20px; border-radius: 50%; z-index: 1;
-    transition: background-color 0.3s ease;
-}
-.timeline-item:nth-child(even)::after { left: -10px; }
-.timeline-content {
-    padding: 20px;
-    position: relative;
-    /* Propriétés de verre déjà appliquées en haut */
-}
-.timeline-content h3 { color: var(--text-color); }
-.timeline-content p { color: var(--text-secondary); }
-.timeline-content ul { list-style: disc; padding-left: 20px; text-align: left; }
-
-/* Effet hover logo Timeline */
-.timeline-logo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 80px;
-    height: auto;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    transform: scale(0.9);
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.timeline-item:nth-child(odd) .timeline-logo { right: auto; left: 20px; }
-.timeline-content:hover .timeline-logo { opacity: 1; transform: scale(1); }
-
-
-/* Contact & Footer */
-.contact-info p { font-size: 1.1rem; color: var(--text-color); }
-footer {
-    text-align: center; padding: 2rem;
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border-top: 1px solid var(--glass-border);
-    margin-top: 2rem; 
-    color: var(--text-secondary);
-    transition: var(--theme-transition);
-}
-
-/* Effet d'apparition au scroll */
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* =================================================================== */
-/* 7. Styles (Documentation, Contact, etc.)
-/* =================================================================== */
-
-/* --- Page Documentation --- */
-.excel-preview {
-    width: 100%;
-    min-height: 300px;
-    /* Verre déjà appliqué */
-    border: 1px solid var(--glass-border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-}
-.excel-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-}
-
-/* --- Page BTS SIO --- */
 .card-divider {
     border: 0;
     height: 1px;
-    background-color: var(--glass-border);
-    margin: 1.5rem 0;
+    background-color: var(--border);
+    margin: 1.25rem 0;
 }
 
-/* --- Page Contact --- */
-.contact-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+.project-context {
+    background: rgba(56, 189, 248, 0.05);
+    border-left: 3px solid var(--accent);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.25rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.context-label {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+}
+
+/* =================================================================== */
+/* 11. Grids
+/* =================================================================== */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.bts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
 @media (min-width: 768px) {
-    .contact-grid { grid-template-columns: 1fr 1fr; }
+    .bts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-.social-links { margin-top: 2rem; }
+.documentation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Nested doc cards */
+.nested-doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.nested-doc-card {
+    background: var(--bg-elevated);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition);
+}
+
+.nested-doc-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+}
+
+.nested-doc-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.nested-doc-card p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.nested-doc-card .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    align-self: flex-start;
+}
+
+.doc-img-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    height: 80px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+}
+
+.doc-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* =================================================================== */
+/* 12. Skills
+/* =================================================================== */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.skill-tag {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+.skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* =================================================================== */
+/* 13. Timeline
+/* =================================================================== */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 2rem 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0.5rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--bg-base);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--bg-base), 0 0 12px var(--accent-glow);
+    z-index: 1;
+    transition: all var(--transition);
+}
+
+.timeline-item:hover::before {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg-base), 0 0 20px var(--accent);
+}
+
+.timeline-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: all var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.timeline-content:hover {
+    border-color: var(--border-strong);
+    transform: translateX(4px);
+}
+
+.timeline-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.timeline-company {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.75rem;
+}
+
+.timeline-content ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.94rem;
+}
+
+.timeline-content ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* =================================================================== */
+/* 14. Listes (Présentation, Missions, etc.)
+/* =================================================================== */
+.missions-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.25rem 0;
+}
+
+.missions-list li {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.75rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+}
+
+.missions-list li:last-child {
+    border-bottom: none;
+}
+
+.missions-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.missions-list strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.presentation-content {
+    max-width: 800px;
+}
+
+.presentation-content h3 {
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+}
+
+.presentation-content h3:first-child {
+    margin-top: 0;
+}
+
+.presentation-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.presentation-content strong {
+    color: var(--text-primary);
+}
+
+.bts-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.75rem;
+}
+
+.bts-card ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.bts-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+}
+
+.highlight-sisr {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.bts-meta {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+/* =================================================================== */
+/* 15. Contact
+/* =================================================================== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1.2fr;
+    }
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.contact-info-block {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: all var(--transition);
+}
+
+.contact-info-block:hover {
+    border-color: var(--border-accent);
+}
+
+.contact-info-block .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info-block .value {
+    color: var(--text-primary);
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.contact-info-block a {
+    color: var(--text-primary);
+}
+.contact-info-block a:hover {
+    color: var(--accent);
+}
+
 .linkedin-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--glass-border);
-    border-radius: 5px;
-    color: var(--text-secondary);
-    font-weight: bold;
-    transition: all 0.3s ease;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    background-color: var(--bg-card);
 }
-.linkedin-link svg { fill: var(--text-secondary); transition: fill 0.3s ease; }
-.linkedin-link:hover { color: var(--primary-color); border-color: var(--primary-color); }
-.linkedin-link:hover svg { fill: var(--primary-color); }
 
-/* Formulaire de Contact (Style Verre) */
+.linkedin-link svg {
+    fill: currentColor;
+    width: 18px;
+    height: 18px;
+}
+
+.linkedin-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
 .contact-form-container {
-    /* Verre déjà appliqué */
     padding: 2rem;
 }
-.contact-form-container p { color: var(--text-color); }
-.form-group { margin-bottom: 1.5rem; }
-.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--text-secondary); }
 
-.form-group input[type="email"],
-.form-group input[type="text"],
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--glass-border);
-    
-    /* Style Verre pour les champs */
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    
-    color: var(--text-color);
-    border-radius: 5px;
-    transition: var(--theme-transition), border-color 0.3s ease;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
 }
 
-.form-group input[type="email"]:focus,
-.form-group input[type="text"]:focus,
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: var(--font-body);
 }
 
 /* =================================================================== */
-/* 8. Responsive Design
+/* 16. Iframe & Tableaux
 /* =================================================================== */
-@media (max-width: 768px) {
-    .nav-container { flex-direction: column; gap: 1rem; }
-    header nav ul { justify-content: center; gap: 0.5rem 1rem; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1.2rem; }
-
-    /* Timeline sur mobile */
-    .timeline::after { left: 30px; }
-    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        left: 0; text-align: left; padding-left: 70px;
-    }
-    .timeline-item::after { left: 20px; }
-    
-    /* Logo timeline sur mobile */
-    .timeline-logo { top: 10px; right: 10px; width: 60px; }
-    .timeline-item:nth-child(odd) .timeline-logo,
-    .timeline-item:nth-child(even) .timeline-logo {
-        left: auto; right: 10px;
-    }
-}
-/* =================================================================== */
-/* 9. Styles Mise à Jour E5 (Cartes Projets Contextualisées)
-/* =================================================================== */
-
-/* Permet à une carte de prendre toute la largeur si nécessaire */
-.full-width-card {
-    grid-column: 1 / -1; /* Prend toute la largeur de la grille */
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+.iframe-container {
+    position: relative;
+    padding-bottom: 60%;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    background-color: #fff;
 }
 
-.context-label {
-    color: var(--primary-color);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
-.project-details-list {
-    list-style: none;
-    padding: 0;
+.iframe-actions {
+    text-align: center;
     margin-top: 1rem;
 }
 
-.project-details-list li {
-    background-color: rgba(255, 255, 255, 0.05); /* Légère surbrillance */
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    border-left: 3px solid var(--text-secondary);
+/* =================================================================== */
+/* 17. Footer
+/* =================================================================== */
+footer {
+    background-color: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+    padding: 3rem 1.5rem 2rem;
+    margin-top: 4rem;
 }
 
-.project-details-list li strong {
-    color: var(--text-color);
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.doc-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: underline;
-    color: var(--primary-color);
-}
-.doc-link:hover {
-    color: var(--primary-hover);
-}
-
-/* Ajustement responsive pour les grosses cartes */
-@media (max-width: 768px) {
-    .full-width-card {
-        padding: 1rem;
-    }
-}
-/* AJOUTS POUR LA SYNTHÈSE E5 ET DOCUMENTATION */
-
-/* Styles pour le Tableau de Synthèse */
-.synthesis-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    background-color: var(--card-color);
-    border-radius: 8px;
-    overflow: hidden; 
-}
-.synthesis-table th, .synthesis-table td {
-    padding: 12px 15px;
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
     text-align: center;
-    border: 1px solid var(--border-color);
-    vertical-align: middle;
-}
-.synthesis-table th {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    vertical-align: top;
-}
-.synthesis-table td {
-    color: var(--text-color);
-    transition: var(--theme-transition);
-}
-.synthesis-table tr:nth-child(even) {
-    background-color: #383838; /* Slight difference for dark mode */
-}
-body.light-mode .synthesis-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Slight difference for light mode */
-}
-.synthesis-table .project-title {
-    text-align: left;
-    font-weight: bold;
-    min-width: 200px;
-}
-.synthesis-table .competency-check {
-    font-size: 1.2rem;
-    color: var(--primary-color); /* Utilise la couleur primaire pour les checks */
-    font-weight: bold;
 }
 
-/* Styles pour la section Documentation des Compétences */
-.documentation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-.documentation-card {
-    background-color: var(--card-color);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    border-left: 5px solid var(--primary-color);
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-.documentation-card:hover {
-    transform: translateY(-5px);
-}
-.documentation-card h3 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-.documentation-card p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-/* Fin des ajouts */
-
-/* Reste du fichier CSS inchangé (omitted for brevity) */
-/* =================================================================== */
-/* 10. Styles Menus Déroulants (Dropdowns)
-/* =================================================================== */
-
-/* Conteneur du menu déroulant */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Le contenu du menu (caché par défaut) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
-    min-width: 200px;
-    box-shadow: 0 8px 16px var(--shadow-color);
-    border-radius: 8px;
-    z-index: 1000;
-    top: 100%; /* Juste en dessous du lien */
-    left: 0;
-    padding: 0.5rem 0;
-}
-
-/* Les liens dans le menu déroulant */
-.dropdown-content a {
-    color: var(--text-color);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    transition: background-color 0.3s ease;
-}
-
-/* Effet au survol des liens du menu */
-.dropdown-content a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--primary-color);
-}
-
-/* Afficher le menu au survol du parent */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Petit indicateur (flèche) à côté du lien principal */
-.dropbtn::after {
-    content: ' ▼';
-    font-size: 0.7em;
-    vertical-align: middle;
-}
-/* Styles pour les images vitrines des projets */
-.project-image-container {
-    width: 100%;
-    height: 200px; /* Hauteur fixe pour uniformiser */
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    border: 1px solid var(--glass-border);
-    background-color: rgba(0,0,0,0.2);
+.footer-meta {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.project-showcase-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image remplit le cadre sans déformation */
-    transition: transform 0.5s ease;
+.footer-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-.project-card:hover .project-showcase-img {
-    transform: scale(1.05); /* Zoom léger au survol */
+.footer-meta .sep {
+    opacity: 0.4;
 }
 
-/* Texte spécifique pour le contexte */
-.project-context {
-    font-style: italic;
+footer p {
     color: var(--text-secondary);
-    border-left: 3px solid var(--primary-color);
-    padding-left: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    margin: 0;
 }
+
 /* =================================================================== */
-/* 11. Styles pour les Images de Réalisation (Vitrines)
+/* 18. Reveal animations
 /* =================================================================== */
-
-.realization-img-wrapper {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--glass-border);
-    background-color: rgba(0,0,0,0.1);
-    max-width: 100%; /* S'adapte à la largeur de la carte */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.realization-img {
-    width: 100%;
-    height: auto;
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =================================================================== */
+/* 19. Veille — cards style
+/* =================================================================== */
+.veille-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+    transition: all var(--transition);
+}
+
+.veille-card:hover {
+    border-left-color: var(--accent-2);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.veille-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.veille-card h3 .num {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+/* =================================================================== */
+/* 20. Responsive
+/* =================================================================== */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-container {
+        padding: 0.85rem 1.25rem;
+    }
+
+    header nav ul {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-elevated);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        transform: translateY(-110%);
+        transition: transform var(--transition);
+        align-items: stretch;
+    }
+
+    header nav ul.open {
+        transform: translateY(0);
+    }
+
+    header nav ul li {
+        width: 100%;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-sm);
+    }
+
+    header nav ul li a.active::after {
+        display: none;
+    }
+
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding-left: 1rem;
+        display: none;
+    }
+
+    .dropdown.open-mobile .dropdown-content {
+        display: block;
+    }
+
+    .dropbtn::after {
+        float: right;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 3.5rem 1.25rem;
+    }
+
+    main > section.container:first-of-type {
+        padding-top: 7rem;
+    }
+
+    .hero {
+        padding: 6rem 1.25rem 3rem;
+        min-height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nested-doc-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .hero-meta {
+        gap: 1rem 1.5rem;
+    }
+}
+
+/* =================================================================== */
+/* 21. Focus states (accessibilité)
+/* =================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* =================================================================== */
+/* 22. Decorative elements
+/* =================================================================== */
+.section-tag {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-bottom: 0.5rem;
     display: block;
-    object-fit: cover;
-    max-height: 250px; /* Limite la hauteur pour ne pas casser la page */
-    transition: transform 0.3s ease;
 }
 
-.realization-img:hover {
-    transform: scale(1.02);
-}
-
-.doc-note {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    display: block;
-    margin-top: 5px;
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: 3rem 0;
+    max-width: 100px;
 }

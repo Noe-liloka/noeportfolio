@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Portfolio Noé Liloka</title>
+    <meta name="description" content="Contactez Noé Liloka — étudiant en BTS SIO SISR, technicien helpdesk en alternance.">
+    <title>Contact — Noé Liloka</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header>
         <nav>
             <div class="nav-container">
-                <a href="index.html" class="nav-logo">Noé Liloka</a>
+                <a href="index.html" class="nav-logo">noé.liloka<span style="color:var(--accent);">_</span></a>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    
                     <li class="dropdown">
                         <a href="apropos.html" class="dropbtn">À propos</a>
                         <div class="dropdown-content">
@@ -22,91 +25,109 @@
                             <a href="apropos.html#parcours">Parcours</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="projets.html" class="dropbtn">Projets</a>
                         <div class="dropdown-content">
-                            <a href="projets.html#synthese">Synthèse E5</a>
-                            <a href="projets.html#projets-detail">Détail Projets</a>
-                            <a href="projets.html#doc-competences">Documentations</a>
+                            <a href="projets.html#synthese">Tableau de synthèse</a>
+                            <a href="projets.html#documentation">Documentations</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="btssio.html" class="dropbtn">BTS SIO</a>
                         <div class="dropdown-content">
                             <a href="btssio.html#definition">C'est quoi ?</a>
                             <a href="btssio.html#options">Options (SISR)</a>
                             <a href="btssio.html#debouches">Débouchés</a>
-                            <a href="btssio.html#monprojet">Mon Projet Post-BTS</a>
+                            <a href="btssio.html#monprojet">Mon projet post-BTS</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="veille.html" class="dropbtn">Veille</a>
                         <div class="dropdown-content">
-                            <a href="veille.html#intro">Le Jailbreak</a>
-                            <a href="veille.html#actu">Actu Console</a>
+                            <a href="veille.html#intro">L'émulation</a>
+                            <a href="veille.html#actu">Actu & juridique</a>
                             <a href="veille.html#sources">Sources</a>
                         </div>
                     </li>
-
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                
-                <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
-                </button>
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème"></button>
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="contact" class="container reveal">
-            <h2>Contact</h2>
-            <p>N'hésitez pas à me contacter pour toute opportunité ou pour échanger.</p>
-            
+            <span class="section-eyebrow">Get in touch</span>
+            <h2>Parlons-en</h2>
+            <p class="section-subtitle">Une opportunité, un projet, ou simplement envie d'échanger sur l'infrastructure ? N'hésitez pas — je réponds rapidement.</p>
+
             <div class="contact-grid">
                 <div class="contact-info">
-                    <p><strong>Email:</strong> <a href="mailto:Noe-liloka@outlook.fr">Noe-liloka@outlook.fr</a></p>
-                    <p><strong>Localisation:</strong> Sarcelles (95200) / Crépy-en-Valois (60800)</p>
-                    
-                    <div class="social-links">
-                        <a href="httpsE://www.linkedin.com/in/votre-profil-linkedin" target="_blank" class="linkedin-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="30px" height="30px">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                            Mon Profil LinkedIn
+                    <div class="contact-info-block">
+                        <span class="label">Email</span>
+                        <span class="value"><a href="mailto:Noe-liloka@outlook.fr">Noe-liloka@outlook.fr</a></span>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <span class="label">Localisation</span>
+                        <span class="value">Sarcelles (95200) · Crépy-en-Valois (60800)</span>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <span class="label">Réseau</span>
+                        <a href="https://www.linkedin.com/in/votre-profil-linkedin" target="_blank" rel="noopener" class="linkedin-link" style="margin-top: 0.5rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            Mon profil LinkedIn
                         </a>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <span class="label">Disponibilité</span>
+                        <span class="value">Alternance — réponse sous 24h</span>
                     </div>
                 </div>
 
                 <div class="contact-form-container">
-                    <p><strong>Ou envoyez-moi un message direct :</strong></p>
-                    
-                    <form id="contact-form" action="httpsE://formspree.io/f/XXXXXX" method="POST">
+                    <h3 style="margin-bottom: 1.5rem;">Message direct</h3>
+
+                    <form id="contact-form" action="https://formspree.io/f/XXXXXX" method="POST">
                         <div class="form-group">
-                            <label for="email">Votre Email:</label>
-                            <input type="email" id="email" name="_replyto" required>
+                            <label for="email">Votre email</label>
+                            <input type="email" id="email" name="_replyto" placeholder="vous@exemple.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Sujet:</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" placeholder="Opportunité d'alternance, question…" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message:</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Bonjour Noé,&#10;&#10;…" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Envoyer</button>
+                        <button type="submit" class="btn">
+                            Envoyer
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
                     </form>
                 </div>
             </div>
-
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Noé Liloka. Tous droits réservés.</p>
+        <div class="footer-content">
+            <div class="footer-meta">
+                <span>© 2025 Noé Liloka</span>
+                <span class="sep">·</span>
+                <span>Portfolio BTS SIO SISR</span>
+            </div>
+            <p>Construit avec ❤️ et beaucoup de café.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

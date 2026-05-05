@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos - Portfolio Noé Liloka</title>
+    <meta name="description" content="À propos de Noé Liloka — présentation, compétences techniques et parcours en infrastructures.">
+    <title>À propos — Noé Liloka</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header>
         <nav>
             <div class="nav-container">
-                <a href="index.html" class="nav-logo">Noé Liloka</a>
+                <a href="index.html" class="nav-logo">noé.liloka<span style="color:var(--accent);">_</span></a>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    
                     <li class="dropdown">
                         <a href="apropos.html" class="dropbtn">À propos</a>
                         <div class="dropdown-content">
@@ -22,145 +25,183 @@
                             <a href="apropos.html#parcours">Parcours</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="projets.html" class="dropbtn">Projets</a>
                         <div class="dropdown-content">
-                            <a href="projets.html#synthese">Synthèse E5</a>
-                            <a href="projets.html#projets-detail">Détail Projets</a>
-                            <a href="projets.html#doc-competences">Documentations</a>
+                            <a href="projets.html#synthese">Tableau de synthèse</a>
+                            <a href="projets.html#documentation">Documentations</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="btssio.html" class="dropbtn">BTS SIO</a>
                         <div class="dropdown-content">
                             <a href="btssio.html#definition">C'est quoi ?</a>
                             <a href="btssio.html#options">Options (SISR)</a>
                             <a href="btssio.html#debouches">Débouchés</a>
-                            <a href="btssio.html#monprojet">Mon Projet Post-BTS</a>
+                            <a href="btssio.html#monprojet">Mon projet post-BTS</a>
                         </div>
                     </li>
-
                     <li class="dropdown">
                         <a href="veille.html" class="dropbtn">Veille</a>
                         <div class="dropdown-content">
-                            <a href="veille.html#intro">Le Jailbreak</a>
-                            <a href="veille.html#actu">Actu Console</a>
+                            <a href="veille.html#intro">L'émulation</a>
+                            <a href="veille.html#actu">Actu & juridique</a>
                             <a href="veille.html#sources">Sources</a>
                         </div>
                     </li>
-
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                
-                <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
-                </button>
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème"></button>
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="presentation" class="container reveal">
-            <h2>Présentation Personnelle</h2>
-            
-            <div class="presentation-content">
-                <h3>Qui suis-je ?</h3>
+            <span class="section-eyebrow">01 / Présentation</span>
+            <h2>Qui suis-je ?</h2>
+            <p class="section-subtitle">Un mot sur mon parcours, mon contexte professionnel, et pourquoi j'ai choisi l'infrastructure.</p>
+
+            <div class="card presentation-content">
+                <h3>Bonjour 👋</h3>
                 <p>
-                    Je m'appelle <strong>Noé Liloka</strong>, je suis actuellement étudiant en deuxième année de BTS Services Informatiques aux Organisations (SIO) au <strong>CFA IMCP</strong> à Paris.
+                    Je m'appelle <strong>Noé Liloka</strong>. Je suis actuellement étudiant en deuxième année de BTS Services Informatiques aux Organisations (SIO), option SISR, au <strong>CFA IMCP</strong> à Paris.
                 </p>
-                
-                <h3>Mon contexte professionnel</h3>
+
+                <h3>Mon contexte pro · Rentokil-Initial</h3>
                 <p>
-                    J'effectue mon alternance au sein de l'entreprise <strong>Rentokil-Initial</strong>, un groupe international de services aux entreprises. J'y occupe le poste de Technicien Helpdesk.
+                    J'effectue mon alternance au sein de <strong>Rentokil-Initial</strong>, leader mondial des services aux entreprises (hygiène, prévention et protection). Le groupe opère dans plus de 80 pays et emploie plus de 3 000 collaborateurs rien qu'en France — ce qui implique une infrastructure informatique à grande échelle et une exigence de haute disponibilité.
                 </p>
+                <p>
+                    En tant que <strong>Technicien Helpdesk / Service Desk</strong>, j'évolue dans un environnement technologique hybride. Mes responsabilités couvrent l'intégralité du cycle de vie utilisateur :
+                </p>
+
+                <ul class="missions-list">
+                    <li><strong>Support multi-plateformes (N1/N2)</strong> — Résolution d'incidents sur Windows 10/11, macOS, et terminaux mobiles iOS/Android.</li>
+                    <li><strong>Administration centralisée (AD &amp; M365)</strong> — Gestion des comptes, groupes de sécurité et licences via Active Directory et Microsoft 365.</li>
+                    <li><strong>Gestion de parc &amp; MDM</strong> — Enrôlement et gestion des terminaux mobiles via les solutions de Mobile Device Management.</li>
+                    <li><strong>Ticketing professionnel</strong> — Suivi des tickets via <strong>ServiceNow</strong>, respect des SLA, escalade vers les équipes spécialisées.</li>
+                    <li><strong>Cycle de vie matériel</strong> — Masterisation, onboarding matériel des nouveaux arrivants, suivi de l'inventaire (Asset Management).</li>
+                    <li><strong>Support logiciels métiers</strong> — Outils internes (Atlas, iCabs) et collaboratifs (Teams, OneDrive).</li>
+                </ul>
 
                 <h3>Pourquoi l'option SISR ?</h3>
                 <p>
-                    J'ai choisi l'option <strong>Solutions d'Infrastructure, Systèmes et Réseaux (SISR)</strong> car je suis passionné par l'architecture des systèmes d'information, la cybersécurité et l'administration réseau.
+                    Passionné par les architectures systèmes, j'ai choisi l'option <strong>SISR</strong> pour approfondir mes connaissances en administration réseau, virtualisation et cybersécurité — afin de concevoir des infrastructures robustes et sécurisées.
                 </p>
             </div>
         </section>
 
         <section id="competences" class="container reveal">
-            <h2>Mes Compétences</h2>
-            <p class="section-subtitle">Compétences mobilisées lors de mes projets en formation et en entreprise.</p>
-            
-            <h3>Administration Système & IAM</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">Active Directory</span>
-                <span class="skill-tag">Gestion des droits (Atlas, iCabs)</span>
-                <span class="skill-tag">Windows Server</span>
-                <span class="skill-tag">Linux (Debian/Ubuntu)</span>
-            </div>
+            <span class="section-eyebrow">02 / Stack technique</span>
+            <h2>Mes compétences</h2>
+            <p class="section-subtitle">Compétences mobilisées en formation et en entreprise, organisées par domaine.</p>
 
-            <h3>Réseaux & Sécurité</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">VPN (FortiClient)</span>
-                <span class="skill-tag">Pare-feu (pfSense)</span>
-                <span class="skill-tag">Routage & VLANs</span>
-                <span class="skill-tag">IDS/IPS (Snort)</span>
-            </div>
+            <div class="bts-grid" style="grid-template-columns: 1fr;">
+                <div class="card">
+                    <h3>Administration système &amp; IAM</h3>
+                    <div class="card-divider"></div>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Windows Server 2022</span>
+                        <span class="skill-tag">Linux Debian / Ubuntu</span>
+                        <span class="skill-tag">Microsoft 365</span>
+                        <span class="skill-tag">DHCP / DNS</span>
+                        <span class="skill-tag">GPO</span>
+                    </div>
+                </div>
 
-            <h3>Outils & Support</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">ServiceNow (ITSM)</span>
-                <span class="skill-tag">GLPI</span>
-                <span class="skill-tag">Proxmox</span>
-                <span class="skill-tag">PowerShell</span>
+                <div class="card">
+                    <h3>Réseaux &amp; sécurité</h3>
+                    <div class="card-divider"></div>
+                    <div class="skills-grid">
+                        <span class="skill-tag">VPN (FortiClient / OpenVPN)</span>
+                        <span class="skill-tag">Pare-feu pfSense</span>
+                        <span class="skill-tag">VLANs &amp; routage inter-VLAN</span>
+                        <span class="skill-tag">MDM / Intune</span>
+                        <span class="skill-tag">Snort / IDS</span>
+                        <span class="skill-tag">HAProxy</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Virtualisation &amp; supervision</h3>
+                    <div class="card-divider"></div>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Proxmox VE</span>
+                        <span class="skill-tag">Proxmox Backup Server</span>
+                        <span class="skill-tag">Zabbix</span>
+                        <span class="skill-tag">TrueNAS</span>
+                        <span class="skill-tag">iRedMail</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Outils &amp; support</h3>
+                    <div class="card-divider"></div>
+                    <div class="skills-grid">
+                        <span class="skill-tag">ServiceNow</span>
+                        <span class="skill-tag">GLPI</span>
+                        <span class="skill-tag">Asset Management</span>
+                        <span class="skill-tag">Documentation technique</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="parcours" class="container reveal">
-            <h2>Parcours Professionnel & Formation</h2>
+            <span class="section-eyebrow">03 / Timeline</span>
+            <h2>Parcours &amp; formation</h2>
+            <p class="section-subtitle">Étapes professionnelles et académiques qui ont construit mon profil aujourd'hui.</p>
+
             <div class="timeline">
-
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <img src="img/rentokil-logo.png" alt="Logo Rentokil Initial" class="timeline-logo">
-                        <h3>Technicien Helpdesk (Alternance)</h3>
-                        <p><strong>Rentokil-Initial</strong> | Juil 2024 - Présent</p>
-                        <p>
-                            Gestion des demandes via <strong>ServiceNow</strong>. Administration des profils applicatifs métiers et gestion des accès sécurisés au réseau (VPN). Support N1/N2.
-                        </p>
+                        <span class="timeline-date">Juil. 2024 → présent</span>
+                        <h3>Technicien Helpdesk · Alternance</h3>
+                        <p class="timeline-company">Rentokil-Initial</p>
+                        <p>Gestion des incidents et demandes via <strong>ServiceNow</strong>. Administration des accès et support multi-plateformes dans un environnement grand-compte.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>BTS SIO - Option SISR</h3>
-                        <p><strong>CFA IMCP, Paris</strong> | Sept 2024 - 2026</p>
-                        <p>Formation axée sur l'administration systèmes et réseaux, la cybersécurité et la gestion de projets informatiques.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <img src="img/maayane-logo.png" alt="Logo Maayane" class="timeline-logo">
-                        <h3>Assistant IT (Alternance)</h3>
-                        <p><strong>Maayane</strong> | Jan 2024 - Juin 2024</p>
-                        <p>
-                            Première expérience en alternance. Gestion de l'inventaire informatique et préparation des postes de travail.
-                        </p>
+                        <span class="timeline-date">Sept. 2024 → 2026</span>
+                        <h3>BTS SIO — Option SISR</h3>
+                        <p class="timeline-company">CFA IMCP, Paris</p>
+                        <p>Formation supérieure technique spécialisée dans les infrastructures, systèmes et réseaux.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Manoeuvre manutentionnaire</h3>
-                        <p><strong>Exotec, Compiègne</strong> | Décembre 2023</p>
-                        <p>
-                            Coopération avec des robots Skypod et maintenance logicielle de premier niveau sur le système robotisé.
-                        </p>
+                        <span class="timeline-date">Janv. → Juin 2024</span>
+                        <h3>Assistant IT · Alternance</h3>
+                        <p class="timeline-company">Maayane</p>
+                        <p>Première expérience en alternance : gestion de l'inventaire informatique et préparation du parc de postes de travail.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>BAC STI2D - Spécialité SIN</h3>
-                        <p><strong>Lycée Jules Richard</strong> | 2020 - 2021</p>
-                        <p>Systèmes d'Information et Numérique.</p>
+                        <span class="timeline-date">Décembre 2023</span>
+                        <h3>Manœuvre manutentionnaire</h3>
+                        <p class="timeline-company">Exotec, Compiègne</p>
+                        <p>Maintenance logicielle de premier niveau sur des systèmes robotisés Skypod et gestion de flux logistiques.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 → 2021</span>
+                        <h3>BAC STI2D — Spécialité SIN</h3>
+                        <p class="timeline-company">Lycée Jules Richard</p>
+                        <p>Baccalauréat Sciences et Technologies de l'Industrie et du Développement Durable (Systèmes d'Information et Numérique).</p>
                     </div>
                 </div>
             </div>
@@ -168,8 +209,16 @@
     </main>
 
     <footer>
-        <p>© 2025 Noé Liloka. Tous droits réservés.</p>
+        <div class="footer-content">
+            <div class="footer-meta">
+                <span>© 2025 Noé Liloka</span>
+                <span class="sep">·</span>
+                <span>Portfolio BTS SIO SISR</span>
+            </div>
+            <p>Construit avec ❤️ et beaucoup de café.</p>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

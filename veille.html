@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille - Émulation & Juridique</title>
+    <meta name="description" content="Veille technologique sur l'émulation et la préservation du patrimoine vidéoludique — Yuzu, Citra, RetroArch, Delta.">
+    <title>Veille — Émulation &amp; Juridique</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
     <header>
         <nav>
             <div class="nav-container">
-                <a href="index.html" class="nav-logo">Noé Liloka</a>
+                <a href="index.html" class="nav-logo">noé.liloka<span style="color:var(--accent);">_</span></a>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li class="dropdown">
@@ -24,8 +28,8 @@
                     <li class="dropdown">
                         <a href="projets.html" class="dropbtn">Projets</a>
                         <div class="dropdown-content">
-                            <a href="projets.html#synthese">Synthèse E5</a>
-                            <a href="projets.html#projets-detail">Détail Projets</a>
+                            <a href="projets.html#synthese">Tableau de synthèse</a>
+                            <a href="projets.html#documentation">Documentations</a>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -34,95 +38,112 @@
                             <a href="btssio.html#definition">C'est quoi ?</a>
                             <a href="btssio.html#options">Options (SISR)</a>
                             <a href="btssio.html#debouches">Débouchés</a>
-                            <a href="btssio.html#monprojet">Mon Projet Post-BTS</a>
+                            <a href="btssio.html#monprojet">Mon projet post-BTS</a>
                         </div>
                     </li>
                     <li class="dropdown">
                         <a href="veille.html" class="dropbtn">Veille</a>
                         <div class="dropdown-content">
-                            <a href="veille.html#intro">L'Émulation</a>
-                            <a href="veille.html#actu">Actu & Juridique</a>
+                            <a href="veille.html#intro">L'émulation</a>
+                            <a href="veille.html#actu">Actu & juridique</a>
                             <a href="veille.html#sources">Sources</a>
                         </div>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
-                </button>
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème"></button>
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="intro" class="container reveal">
-            <h2>Veille Techno : L'Émulation et la Préservation</h2>
-            <p class="section-subtitle">Analyse de l'évolution de l'émulation (PC/Mobile) et des contre-mesures juridiques.</p>
-            
-            <div class="project-card full-width-card">
-                <h3>Introduction : Émulation vs Piratage</h3>
+            <span class="section-eyebrow">01 / Introduction</span>
+            <h2>Émulation &amp; préservation</h2>
+            <p class="section-subtitle">Analyse de l'évolution de l'émulation (PC / mobile) et des contre-mesures juridiques en 2024–2025.</p>
+
+            <div class="card full-width-card">
+                <h3>Émulation vs Piratage</h3>
                 <div class="card-divider"></div>
                 <p>
-                    L'émulation consiste à simuler le comportement matériel d'une console sur un autre système (PC, Android, iOS). Si elle est essentielle pour la <strong>préservation du patrimoine vidéoludique</strong>, elle est au cœur d'une guerre juridique intense en 2024-2025, notamment entre Nintendo et la communauté open-source.
+                    L'émulation consiste à simuler le comportement matériel d'une console sur un autre système (PC, Android, iOS). Si elle est essentielle pour la <strong>préservation du patrimoine vidéoludique</strong>, elle est au cœur d'une guerre juridique intense en 2024–2025, notamment entre Nintendo et la communauté open-source.
                 </p>
             </div>
         </section>
 
         <section id="actu" class="container reveal">
-            <h2>Actualités Majeures 2024/2025</h2>
-            
-            <div class="project-grid">
-                <div class="project-card full-width-card">
-                    <h3>1. La fin de Yuzu et Citra (PC)</h3>
+            <span class="section-eyebrow">02 / Actualités</span>
+            <h2>Faits marquants 2024 / 2025</h2>
+            <p class="section-subtitle">Trois épisodes qui redéfinissent l'écosystème de l'émulation aujourd'hui.</p>
+
+            <div>
+                <article class="veille-card">
+                    <h3><span class="num">01.</span> La fin de Yuzu et Citra (PC)</h3>
                     <p>
                         En mars 2024, Nintendo a attaqué les développeurs de <strong>Yuzu</strong> (émulateur Switch) en justice. L'argument principal : l'émulateur contournait les protections cryptographiques de la console, facilitant le piratage massif (notamment de <em>Zelda: TOTK</em> avant sa sortie).
                     </p>
                     <p>
-                        <strong>Conséquence :</strong> L'équipe Yuzu a payé 2,4 millions de dollars et cessé tout développement. Cela a créé un vide juridique, rapidement comblé par des "forks" comme <em>Suyu</em> ou <em>Sudachi</em>, montrant la résilience du code open-source.
+                        <strong>Conséquence :</strong> l'équipe Yuzu a payé 2,4 millions de dollars et cessé tout développement. Cela a créé un vide juridique, rapidement comblé par des « forks » comme <em>Suyu</em> ou <em>Sudachi</em> — montrant la résilience du code open-source.
                     </p>
-                </div>
+                </article>
 
-                <div class="project-card full-width-card">
-                    <h3>2. L'ouverture d'iOS à l'émulation (Delta / RetroArch)</h3>
+                <article class="veille-card">
+                    <h3><span class="num">02.</span> L'ouverture d'iOS à l'émulation</h3>
                     <p>
                         Suite aux pressions du DMA européen, Apple a modifié ses règles de validation (App Store Review Guidelines) en avril 2024. Pour la première fois, les émulateurs de consoles rétro (comme <strong>Delta</strong> ou <strong>RetroArch</strong>) sont officiellement autorisés sur l'App Store.
                     </p>
                     <p>
-                        <strong>Impact :</strong> Cela démocratise l'émulation sur iPhone sans avoir besoin de Jailbreak, transformant le marché du jeu mobile.
+                        <strong>Impact :</strong> cela démocratise l'émulation sur iPhone sans avoir besoin de jailbreak, transformant le marché du jeu mobile.
                     </p>
-                </div>
+                </article>
 
-                <div class="project-card full-width-card">
-                    <h3>3. L'émulation Switch sur Android</h3>
+                <article class="veille-card">
+                    <h3><span class="num">03.</span> L'émulation Switch sur Android</h3>
                     <p>
-                        Les smartphones devenant de plus en plus puissants, l'émulation de consoles récentes (Switch) sur Android via des apps comme <strong>Yuzu Android</strong> (avant fermeture) ou <strong>Skyline</strong> pose un défi majeur aux constructeurs. La barrière entre console portable et smartphone s'efface, forçant Nintendo à durcir sa protection matérielle (DRM) pour la future "Switch 2".
+                        Les smartphones devenant de plus en plus puissants, l'émulation de consoles récentes (Switch) sur Android via des apps comme <strong>Yuzu Android</strong> (avant fermeture) ou <strong>Skyline</strong> pose un défi majeur aux constructeurs. La barrière entre console portable et smartphone s'efface, forçant Nintendo à durcir sa protection matérielle (DRM) pour la future « Switch 2 ».
                     </p>
-                </div>
+                </article>
             </div>
         </section>
 
         <section id="sources" class="container reveal">
-            <h2>Sources</h2>
+            <span class="section-eyebrow">03 / Sources</span>
+            <h2>Sources &amp; références</h2>
+            <p class="section-subtitle">Les sources principales que je consulte pour ma veille.</p>
+
             <div class="documentation-grid">
-                <div class="documentation-card">
+                <div class="card">
                     <h3>The Verge</h3>
-                    <p>Couverture complète du procès Nintendo vs Yuzu.</p>
+                    <p>Couverture complète du procès Nintendo vs Yuzu et de l'écosystème tech.</p>
                 </div>
-                <div class="documentation-card">
+                <div class="card">
                     <h3>Ars Technica</h3>
-                    <p>Analyses techniques et juridiques sur le droit à l'émulation.</p>
+                    <p>Analyses techniques et juridiques approfondies sur le droit à l'émulation.</p>
                 </div>
-                <div class="documentation-card">
+                <div class="card">
                     <h3>GitHub</h3>
-                    <p>Suivi des dépôts de code (Ryujinx, RetroArch) et des forks.</p>
+                    <p>Suivi des dépôts de code (Ryujinx, RetroArch, Suyu) et des forks de la communauté.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Noé Liloka. Tous droits réservés.</p>
+        <div class="footer-content">
+            <div class="footer-meta">
+                <span>© 2025 Noé Liloka</span>
+                <span class="sep">·</span>
+                <span>Portfolio BTS SIO SISR</span>
+            </div>
+            <p>Construit avec ❤️ et beaucoup de café.</p>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
