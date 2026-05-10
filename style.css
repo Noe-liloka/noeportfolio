@@ -1,6 +1,6 @@
 /* =================================================================== */
 /* PORTFOLIO NOÉ LILOKA — Refonte UX/UI                                */
-/* Direction : "Tech Editorial" — typographie expressive + accents néon */
+/* Direction : "Infrastructure & Réseaux" — palette enterprise + clarté */
 /* =================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
@@ -14,21 +14,21 @@
     --font-body: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
-    /* Couleurs — palette tech */
-    --accent: #38bdf8;            /* cyan principal */
-    --accent-glow: #38bdf855;
-    --accent-2: #f97316;          /* orange — accent secondaire */
-    --accent-2-glow: #f9731622;
-    --success: #22c55e;
+    /* Couleurs — palette infrastructure réseau */
+    --accent: #3b82f6;            /* bleu enterprise */
+    --accent-glow: #3b82f630;
+    --accent-2: #10b981;          /* vert status actif */
+    --accent-2-glow: #10b98118;
+    --success: #10b981;
 
-    --bg-base: #0a0e1a;
-    --bg-elevated: #111827;
-    --bg-card: rgba(17, 24, 39, 0.6);
-    --bg-card-hover: rgba(17, 24, 39, 0.85);
+    --bg-base: #0d1526;
+    --bg-elevated: #122040;
+    --bg-card: rgba(14, 28, 54, 0.65);
+    --bg-card-hover: rgba(14, 28, 54, 0.9);
 
     --border: rgba(148, 163, 184, 0.12);
     --border-strong: rgba(148, 163, 184, 0.25);
-    --border-accent: rgba(56, 189, 248, 0.4);
+    --border-accent: rgba(59, 130, 246, 0.4);
 
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
@@ -54,10 +54,10 @@
 /* 2. Mode Clair
 /* =================================================================== */
 body.light-mode {
-    --accent: #0284c7;
-    --accent-glow: #0284c733;
-    --accent-2: #ea580c;
-    --accent-2-glow: #ea580c22;
+    --accent: #1d4ed8;
+    --accent-glow: #1d4ed825;
+    --accent-2: #059669;
+    --accent-2-glow: #05966915;
 
     --bg-base: #fafaf9;
     --bg-elevated: #ffffff;
@@ -66,7 +66,7 @@ body.light-mode {
 
     --border: rgba(15, 23, 42, 0.1);
     --border-strong: rgba(15, 23, 42, 0.2);
-    --border-accent: rgba(2, 132, 199, 0.4);
+    --border-accent: rgba(29, 78, 216, 0.4);
 
     --text-primary: #0f172a;
     --text-secondary: #475569;
@@ -110,9 +110,8 @@ body::before {
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 50px 50px;
+        radial-gradient(circle, var(--grid-color) 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
     z-index: -2;
     pointer-events: none;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
@@ -147,7 +146,6 @@ body::after {
     width: 0%;
     z-index: 1001;
     transition: width 0.1s linear;
-    box-shadow: 0 0 10px var(--accent-glow);
 }
 
 /* Skip link (accessibilité) */
@@ -220,8 +218,8 @@ main > section.container:first-of-type {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -495,7 +493,7 @@ header nav ul li a.active::after {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 100px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
@@ -561,8 +559,8 @@ header nav ul li a.active::after {
     gap: 1.5rem 2.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
 }
 
 .hero-meta-item {
@@ -605,8 +603,8 @@ header nav ul li a.active::after {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid var(--border);
+    background: rgba(14, 28, 54, 0.5);
+    border-bottom: 1px solid var(--border-accent);
 }
 
 body.light-mode .hero-card-header {
@@ -620,9 +618,9 @@ body.light-mode .hero-card-header {
     background: var(--text-muted);
     opacity: 0.5;
 }
-.hero-card-header .dot:nth-child(1) { background: #ef4444; }
-.hero-card-header .dot:nth-child(2) { background: #eab308; }
-.hero-card-header .dot:nth-child(3) { background: #22c55e; }
+.hero-card-header .dot:nth-child(1) { background: #10b981; box-shadow: 0 0 6px #10b98166; }
+.hero-card-header .dot:nth-child(2) { background: #3b82f6; }
+.hero-card-header .dot:nth-child(3) { background: #475569; }
 
 .hero-card-header .filename {
     margin-left: 0.75rem;
@@ -640,7 +638,7 @@ body.light-mode .hero-card-header {
 .hero-card-body .key { color: var(--accent); }
 .hero-card-body .val { color: var(--text-primary); }
 .hero-card-body .str { color: var(--accent-2); }
-.hero-card-body .com { color: var(--text-muted); font-style: italic; }
+.hero-card-body .com { color: var(--accent-2); font-size: 0.78rem; letter-spacing: 0.05em; }
 
 /* =================================================================== */
 /* 9. Buttons
@@ -659,12 +657,11 @@ body.light-mode .hero-card-header {
     font-size: 0.92rem;
     cursor: pointer;
     transition: all var(--transition-fast);
-    box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px var(--accent-glow);
+    box-shadow: 0 4px 16px var(--accent-glow);
     color: var(--bg-base);
 }
 
