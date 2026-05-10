@@ -794,6 +794,25 @@ body.light-mode .hero-card-header {
     margin: 1.25rem 0;
 }
 
+.project-card-logo {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    height: 56px;
+    max-width: 200px;
+}
+
+.project-card-logo img {
+    max-height: 34px;
+    max-width: 150px;
+    object-fit: contain;
+}
+
 .project-context {
     background: rgba(56, 189, 248, 0.05);
     border-left: 3px solid var(--accent);
